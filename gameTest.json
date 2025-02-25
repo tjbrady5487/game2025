@@ -567,6 +567,33 @@
         "name": "NewTiledSprite2",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Gem1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Gem1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Gem2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Gem2.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Gem3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Gem3.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -613,8 +640,8 @@
           "name": "hatguy",
           "persistentUuid": "cd014824-46b1-4d4e-886c-ca97ea06ee00",
           "width": 0,
-          "x": 475,
-          "y": 106,
+          "x": 65,
+          "y": 71,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -647,9 +674,25 @@
           "name": "copyitselfplayform",
           "persistentUuid": "0c1d5dfa-44fe-4ab1-a6c0-dc323ee808da",
           "width": 1187,
-          "x": 46,
-          "y": 272,
+          "x": 33,
+          "y": 552,
           "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "gen",
+          "persistentUuid": "dfbb4863-e6eb-4786-8569-7d1c040d9d2e",
+          "width": 0,
+          "x": 600,
+          "y": 201,
+          "zOrder": 4,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -666,11 +709,11 @@
           "effects": [],
           "behaviors": [
             {
+              "canGrabPlatforms": true,
               "name": "PlatformerObject",
               "type": "PlatformBehavior::PlatformerObjectBehavior",
               "acceleration": 1500,
               "canGoDownFromJumpthru": true,
-              "canGrabPlatforms": false,
               "canGrabWithoutMoving": true,
               "deceleration": 1500,
               "gravity": 1000,
@@ -2691,11 +2734,11 @@
           "effects": [],
           "behaviors": [
             {
+              "canBeGrabbed": true,
               "name": "Platform",
               "platformType": "Jumpthru",
               "type": "PlatformBehavior::PlatformBehavior",
-              "canBeGrabbed": true,
-              "yGrabOffset": 0
+              "yGrabOffset": 100
             }
           ],
           "animations": [
@@ -2768,6 +2811,114 @@
               "yGrabOffset": 0
             }
           ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "gen",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Gem1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 68,
+                            "y": 0
+                          },
+                          {
+                            "x": 68,
+                            "y": 94
+                          },
+                          {
+                            "x": 0,
+                            "y": 94
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Gem3.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 0
+                          },
+                          {
+                            "x": 68,
+                            "y": 0
+                          },
+                          {
+                            "x": 68,
+                            "y": 94
+                          },
+                          {
+                            "x": 0,
+                            "y": 94
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -2775,6 +2926,9 @@
         "children": [
           {
             "objectName": "hatguy"
+          },
+          {
+            "objectName": "gen"
           },
           {
             "objectName": "noncopyitselfplatform"
@@ -2939,6 +3093,34 @@
                 "Animation",
                 "=",
                 "\"Jump\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "hatguy",
+                "gen",
+                "",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Delete"
+              },
+              "parameters": [
+                "gen",
+                ""
               ]
             }
           ]
